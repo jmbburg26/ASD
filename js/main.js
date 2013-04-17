@@ -1,6 +1,9 @@
 // John Brandenburg
 // Term: 1304
 
+$(document).on('pageinit'){
+	
+};
 $("#add footer a").on("click", function(){
 	//When user clicks in the nav bar
 	//they will be taken to the add assignment
