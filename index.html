@@ -1,41 +1,45 @@
-<!DOCTYPE html>
-
 <!-- John Brandenburg-->
-<!-- Term 1304-->
-
-<html>
-
-	<head>
+<!-- ASD Term 1304-->
+<!DOCTYPE html> 
+<html> 
+	<head> 
 		<meta charset="utf-8" />
-		<meta name="description" content="The first web app of John Brandenburg" />
+		<meta keywords="homework, assignment, tracker" />
+		<meta name="desrciption" content="The first web app of John Brandenburg" />
 		<meta name="robots" content="index, follow" />
 		<meta name="viewport" content="width=device-width initial-scale=1.0" />
 		<meta name="HandheldFriendly" content="True" />
 		<meta name="MobileOptimized" content="320" />
-		<meta http-equiv="cleartype" content="on" />
+		<meta http-equiv="cleartype" content="on">
 		<title>Homework Tracker</title>
-		
+
 		<!-- My stylesheets -->
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile.structure-1.1.1.min.css" />
-		<link rel="stylesheet" href="css/styles.css" />
-	
-		<!-- Script for Modernizer -->
-		<script src="js/libs/modernizr.custom.min.js"></script>	
-    	
-	</head>
-
-	<body>
-		<!--Home Page-->
-		<section id="home" data-role="page">
-			<header>
-				<h1>Home</h1>
-				<p>Please add an assignment or view current assignments.</p>
-			</header>	
-		</section>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
 		
+		<!-- Script for Modernizer -->
+    	<script src="js/libs/modernizr.custom.min.js"></script>
 
-		<!--Add Item Page-->
-		<section id="add" data-role="page">
+
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	</head> 
+	<body> 
+
+		<!--Home Page-->
+		<div id="home" data-role="page">
+			<div data-role="header" data-position="fixed">
+				<header>
+					<h1>Home</h1>
+					<p>Please add an assignment or view current assignments.</p>
+				</header>
+			</div>	
+			<div>
+				<a href="#add" data-role="button" data-icon="plus">Add</a>
+				<a href="#" data-role="button" data-icon="eye">View</a>
+			</div>
+		</div>
+<!--Add Item Page-->
+		<div id="add" data-role="page">
 			<header>
 				<h1>Add Assignement</h1>
 			</header>
@@ -50,12 +54,11 @@
 					</ul>
 				</nav>
 			</footer>
-		</section>
-    	<!--JavaScript-->
+		</div>
+		<!--JavaScript-->
     	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    	<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
-		<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
-    
+
 </html>
