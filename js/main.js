@@ -3,10 +3,10 @@
 
 $("#home").on('pageinit', function(){
 	//Home page code
-	var 
 });
 
-$("#form").on("pageinit", function(){
+$("#add").on("pageinit", function(){
+
 	//when the form loads, the user will be prompted
 	//to add their data to the form and submit
 
