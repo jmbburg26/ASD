@@ -30,30 +30,60 @@
 			<div data-role="header" data-position="fixed">
 				<header>
 					<h1>Home</h1>
-					<p>Please add an assignment or view current assignments.</p>
 				</header>
 			</div>	
 			<div>
-				<a href="#add" data-role="button" data-icon="plus">Add</a>
-				<a href="#" data-role="button" data-icon="eye">View</a>
+				<p>Please add an assignment or view current assignments.</p>
+			</div>	
+			<div>
+				<a href="#add" data-role="button" data-icon="plus" data-iconpos="right">Add New Assignment</a>
+				<a href="#" data-role="button" data-icon="info" data-iconpos="right">View Assignments</a>
 			</div>
 		</div>
 <!--Add Item Page-->
 		<div id="add" data-role="page">
-			<header>
-				<h1>Add Assignement</h1>
-			</header>
-			<section>
-				<form id="collect-data"></form>
-			</section>
-			<footer>
-				<nav>
-					<ul>
-						<li><a href="#" id="home">Home</a></li>
-						<li><a href="#" id="add">Add</a></li>
-					</ul>
-				</nav>
-			</footer>
+			<div data-role="header" data-position="fixed">
+				<header>
+					<h1>Add Assignement</h1>
+				</header>
+			</div>
+			<div>
+				<form action="" id="additemform">
+					<div>
+						<p>*Indictaes a required field.</p>
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label for "fname">*First Name:</label>
+						<input type="text" name="fname" id="fname" class="required" placeholder="Type first name here"/>
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label for "lname" >*Last Name:</label>
+						<input type="text" name="lname" id="lname" class="required" placeholder="Type last name here"/>
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label for "email">*Email:</label>
+						<input type="text" name="email" id="email" class="required email" placeholder="likethis@gmail.com"/>
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label for="datedue">Date Due:</label>
+						<input type="date" data-clear-btn="false" name="datedue" id="datedue" value="" />
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label for "notes" id="notes">Assignment Details:</label>
+						<textarea cols="40" rows="8" name="notes" id="notes"></textarea>
+					</div>
+					
+					<div>
+						<input type="submit" value="Save My Assignment" data-inline="true" data-theme="b" />
+						<input type="reset" value="Reset" data-inline="true" data-mini="true" />
+					</div>
+				</form>
+			</div>
 		</div>
 		<!--JavaScript-->
     	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
