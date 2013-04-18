@@ -1,76 +1,59 @@
-$("#home").on('pageinit', function(){
-	//Home page code	
+$('#home').on('pageinit', function(){
+	//code needed for home page goes here
 
+});	
+	
+$('#add').on('pageinit', function(){
+		var 	myAddForm = $('#additemform'),
+				defaultData= $('jsondata')
+		;
+                
+		myAddForm.validate({
+			invalidHandler: function(form, validator) {
+	                       errorLink.click();
+			       var html ='';
+	                       for (var key in validator.submitted){
+					var label = $('label[for^="'+ key +'"]').not('[generated]');
+					var legend = label.closest('fieldset').find('.ui-controlgroup-label');
+					var fieldName = legend.length ? legend.text() : label.text();
+					html += '<li>'+ fieldName +'</li>';
+				};
+				console.log(fieldName);
+				$("#usererrors ul").html(html);
+			},
 
-	$('section form')
-
-
-	//Save Data Function
-		function $(x){
-			var userElements = document.getElementById(x);
-			return userElements;
+		var	submitHandler = function() {
+                                var itemData = additemform.serializeArray();
+                                parseAddForm(itemData);
+				alert("Homework Added!");
+                                }
+        });
+		//any other code needed for addItem page goes here
+	
+		// Save user data to Local Storage
+		var parseAddForm = function(itemData){
+			var key		= Math.floor(Math.random()*100000001);
+			localStorage.setItem(key, JSON.stringify(itemData));
+			console.log(itemData);
 		};
-		
-	//Get Data Function
-		function storeData	(){
-			var userValues			=Math.floor(Math.random()*100000001);
-			
-			var userItem			= {};
-				userItem.fname		= ["First Name:", $('#fname').val];
-				userItem.lname		= ["Last Name:", $('#lname').val];
-				userItem.email		= ["Email:", $('#email').val];
-				userItem.datedue	= ["Date:", $('#datedue').val];
-				userItem.notes		= ["Notes:", $('#notes').val;
-			//Save user data to local storage
-			localStorage.setItem(id, JSON.stringify(userItem));
-			alert("Homework Added!");
-			resetForm();
-		}	
-		
-		function getData(){
-		toggleControls("on");
-
-		//Write Data form Local Storage
-		var makeDiv = document.createElement('div');
-		makeDiv.setAttribute("id", "userItem");
-		var makeList = document.createElement('ul');
-		makeDiv.appendChild(makeList);
-		document.body.appendChild(makeDiv);
-		$('userItem').style.display = "block";
-		for(var i=0, len=localStorage.length; i<len; i++){
-			var makeli = document.createElement('li');
-			makeList.appendChild(makeli);
-			var key = localStorage.key(i);
-			var value = localStorage.getItem(key);
-			
-			var obj = JSON.parse(value);
-			var makeSubList = document.createElement('ul');
-			makeli.appendChild(makeSubli);
-			var optSubText = obj[n][0]+" "+obj[n][1];
-			makeSubli.innerHTML = optSubText;
-			}
-		}
-
-	//Clear Data
-		function clearData(){
-			if(localStorage.length === 0){
-				alert("There is no assignment.")
-			}else{
-				alert("All homework has been deleted!");
-				window.location.reload();
-				return false;	
+		// Display data function
+		var autofillData = function (itemData){
+			for (var n in json){
+			var id = Math.floor(Math.random()*100000001);
+				localStorage.setItem(id, JSON.stringify(json[n]))
 			}
 		};
 
+	//The functions below can go inside or outside the pageinit function for the page in which it is needed.
 
-	$("#add").on("pageinit", function(){
-	//Click events for diaplsy, save, and clear
-		var displayLink = $('#display');
-		displayLink.on('click', getData);
-		var clearLink = $('#clear');
-		clearLink.on('click', clearData);
-		var save = $('#save');
-		save.on('click', storeData);
+	
+	
+	
 
-	});
-});
+	var deleteItem = function (){
+		
+	};
+
+	var clearLocal = function(){
+
+	};
