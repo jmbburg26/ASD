@@ -1,16 +1,17 @@
-// John Brandenburg
-// Term: 1304
-
 $("#home").on('pageinit', function(){
-	//Home page code
+	//Home page code	
 });
 
 $("#add").on("pageinit", function(){
 
-	//when the form loads, the user will be prompted
-	//to add their data to the form and submit
+//Click events for diaplsy, save, and clear
+	var displayLink = $('#display');
+	displayLink.on('click', getData);
+	var clearLink = $('#clear');
+	clearLink.on('click', clearData);
+	var save = $('#save');
+	save.on('click', storeData);
 
-	var saveData = $()
+	});
 
-	var 
-});
+
