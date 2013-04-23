@@ -33,3 +33,28 @@ $('#view').on('pageinit', function(){
   	}).appendTo('body');
 	});
 });
+
+
+$(function(){
+
+  $('#assignments').empty();
+  $.ajax({
+      url: 'xhr/data.php'
+      type: 'GET',
+      dataType: 'json',
+      success: function(response){
+        for (var i=0 j=response.assignments.length; i<j; i++) {
+          var assign = response.assignments[i];
+          $(''+
+              '<div class="assignments">'+
+              '<h2>'+ assign.datedue +'</h2>'+
+              '<p>'+ assign.fname +'</p>'+
+              '<p>'+ assign.lname +'</p>'+
+              '<p>'+ assign.email +'</p>'+
+              '<p>'+ assign.notes +'</p>'+
+              '</div>'
+              ).appendTo('#assignments')
+        };
+      }
+  })
+});
