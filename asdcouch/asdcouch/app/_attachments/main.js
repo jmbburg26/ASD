@@ -38,39 +38,36 @@ $('#add').on('pageinit', function(){
 	  	localStorage.setItem(userValues, userItems);
 	  	alert("Homework Added");
 	});
-  //Button links
+
+$('#view').on('pageinit', function(){
+	$.ajax({
+		"url": "_view/asd",
+		"datatype": "json",
+		"success": function(data){
+			$.each(data.rows, function(index, userData){
+				var fname	= userData.value.fname;
+				var	lname	= userData.value.lname;
+				var email	= userData.value.email;
+				var datedue = userData.value.datedue;
+				var notes 	= userData.value.notes;
+				$('#savedlist').append(
+					$('<li>').append(
+						$('<a>').attr("href", "#")
+							.text(title)
+					)
+				);
+			});
+			$('#savedlist').listview('refresh');
+		}
+	});
+});
+
+
+//Button links
     var displayLink = $('#view');
     displayLink.on("click", getData);
     //var clearLink = $('boom');
     //clearLink.on("click", boomData);
     //var save = $('save');
     //save.on("click", validate);
-});
-
-$('#view').on('pageinit', function(){
-  	
-
-   /* var defaultData = $(function(){
-
-    $('#assignments').empty();
-    $.ajax({
-        url: 'xhr/data.php',
-        type: 'GET',
-        dataType: 'jsonp',
-          success: function(response){
-            for (var i=0, j=response.assignments.length; i<j; i++) {
-              var assign = response.assignments[i];
-              $(''+
-                  '<div class="assignments">'+
-                  '<h2>'+ assign.datedue +'</h2>'+
-                  '<p>'+ assign.fname +'</p>'+
-                  '<p>'+ assign.lname +'</p>'+
-                  '<p>'+ assign.email +'</p>'+
-                  '<p>'+ assign.notes +'</p>'+
-                  '</div>'
-                ).appendTo('#assignments');    
-            };
-          }
-    })
-  });*/
 });
