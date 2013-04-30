@@ -1,5 +1,5 @@
 $('document').on('pageinit','#add', function(){
-	$.couch.db("asdproject").view("asdproject/asd", {
+	$.couch.db("asdproject").view("plugin/asd", {
 		success: function(data){
 			console.log(data);
 		}

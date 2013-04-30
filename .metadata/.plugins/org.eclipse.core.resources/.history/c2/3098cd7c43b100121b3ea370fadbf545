@@ -1,12 +1,9 @@
-$('document').on('pageinit','#add', function(){
-	$.couch.db("asdproject").view("asdproject/asd", {
-		success: function(data){
-			console.log(data);
-		}
-	});
+$(document).on(‘pageinit’, ‘#add’, function(){
+$('#home').on('pageinit', function(){
+	//code needed for home page goes here
+
 });	
 
-/*
 var getData = function(){
   if(localStorage.length === 0){
       alert("There are no assignments in Local Storage so default data has been added.");
@@ -75,4 +72,3 @@ $('#view').on('pageinit', function(){
     //var save = $('save');
     //save.on("click", validate);
 });
-*/
