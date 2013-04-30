@@ -2,9 +2,12 @@ $(document).on('pageinit', '#add', function(){
 	$.couch.db("asdproject").view("asdproject/asd", {
 		success: function(data){
 			//console.log(data);
-			$('#savedlist').empty();
 			$.each(data.rows, function(index, userData){
-				var item = (value.value || value.doc);
+				var fname	= userData.value.fname;
+				var	lname	= userData.value.lname;
+				var email	= userData.value.email;
+				var datedue = userData.value.datedue;
+				var notes 	= userData.value.notes;
 				$('#savedlist').append(
 					$('<li>').append(
 						$('<a>').attr("href", "#view")

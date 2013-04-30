@@ -1,21 +1,10 @@
-$(document).on('pageinit', '#add', function(){
+$('#home').on('pageinit', '#add', function(){
 	$.couch.db("asdproject").view("asdproject/asd", {
 		success: function(data){
-			//console.log(data);
-			$('#savedlist').empty();
-			$.each(data.rows, function(index, userData){
-				var item = (value.value || value.doc);
-				$('#savedlist').append(
-					$('<li>').append(
-						$('<a>').attr("href", "#view")
-							.text(title)
-					)
-				);
-			});
-			$('#savedlist').listview('refresh');
+			console.log(data);
 		}
 	});
-});
+});	
 
 /*
 var getData = function(){
@@ -67,7 +56,7 @@ $('#view').on('pageinit', function(){
 				var notes 	= userData.value.notes;
 				$('#savedlist').append(
 					$('<li>').append(
-						$('<a>').attr("href", "#view")
+						$('<a>').attr("href", "#")
 							.text(title)
 					)
 				);
