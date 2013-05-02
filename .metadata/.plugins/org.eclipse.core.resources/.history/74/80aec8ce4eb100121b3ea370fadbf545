@@ -1,14 +1,14 @@
 $(document).on('pageinit', '#view', function(){
-	$.couch.db("asdproject").view("asdproject/course", {
+	$.couch.db("asdproject").view("asdproject/asd", {
 		success: function(data){
 			//console.log(data);
 			$('#savedlist').empty();
-			$.each(data.rows, function(index, value){
+			$.each(data.rows, function(index, userData){
 				var item = (value.value || value.doc);
 				$('#savedlist').append(
 					$('<li>').append(
-						$('<a>').attr("href", "asd.html?course=" + item.)
-							.text(item.title)
+						$('<a>').attr("href", "asd.html?asd=" + item.project)
+							.text(title)
 					)
 				);
 			});
@@ -17,6 +17,24 @@ $(document).on('pageinit', '#view', function(){
 	});
 });
 
+$('#view').on('pageinit', function(){
+	$.couch.db("asdproject").view("asdproject/asd", {
+		success: function(data){
+			//console.log(data);
+			$('#savedlist').empty();
+			$.each(data.rows, function(index, userData){
+				var item = (value.value || value.doc);
+				$('#savedlist').append(
+					$('<li>').append(
+						$('<a>').attr("href", "asd.html?asd=" + item.project)
+							.text(title)
+					)
+				);
+			});
+			$('#savedlist').listview('refresh');
+		}
+	});
+});
 /*
 var getData = function(){
   if(localStorage.length === 0){

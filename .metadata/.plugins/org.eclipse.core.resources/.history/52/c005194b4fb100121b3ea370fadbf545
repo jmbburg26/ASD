@@ -1,5 +1,5 @@
 $(document).on('pageinit', '#view', function(){
-	$.couch.db("asdproject").view("asdproject/course", {
+	$.couch.db("asdproject").view("asdproject/asd", {
 		success: function(data){
 			//console.log(data);
 			$('#savedlist').empty();
@@ -7,7 +7,7 @@ $(document).on('pageinit', '#view', function(){
 				var item = (value.value || value.doc);
 				$('#savedlist').append(
 					$('<li>').append(
-						$('<a>').attr("href", "asd.html?course=" + item.)
+						$('<a>').attr("href", "asd.html?asd=" + item.project)
 							.text(item.title)
 					)
 				);

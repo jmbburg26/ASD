@@ -1,14 +1,14 @@
 $(document).on('pageinit', '#view', function(){
-	$.couch.db("asdproject").view("asdproject/course", {
+	$.couch.db("asdproject").view("asdproject/asd", {
 		success: function(data){
 			//console.log(data);
 			$('#savedlist').empty();
-			$.each(data.rows, function(index, value){
+			$.each(data.rows, function(index, userData){
 				var item = (value.value || value.doc);
 				$('#savedlist').append(
 					$('<li>').append(
-						$('<a>').attr("href", "asd.html?course=" + item.)
-							.text(item.title)
+						$('<a>').attr("href", "asd.html?asd=" + item.project)
+							.text(title)
 					)
 				);
 			});
@@ -54,7 +54,28 @@ $('#add').on('pageinit', function(){
 	  	alert("Homework Added");
 	});
 
-
+$('#view').on('pageinit', function(){
+	$.ajax({
+		"url": "_view/asd",
+		"datatype": "json",
+		"success": function(data){
+			$.each(data.rows, function(index, userData){
+				var fname	= userData.value.fname;
+				var	lname	= userData.value.lname;
+				var email	= userData.value.email;
+				var datedue = userData.value.datedue;
+				var notes 	= userData.value.notes;
+				$('#savedlist').append(
+					$('<li>').append(
+						$('<a>').attr("href", "#view")
+							.text(title)
+					)
+				);
+			});
+			$('#savedlist').listview('refresh');
+		}
+	});
+});
 
 
 //Button links
