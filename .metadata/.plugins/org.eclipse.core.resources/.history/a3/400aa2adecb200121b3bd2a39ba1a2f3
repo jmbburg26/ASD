@@ -1,0 +1,19 @@
+$(document).on('pageinit', '#home', function(){
+	$.couch.db("asdproject").view("asdproject/course", {
+		success: function(data){
+			//console.log(data);
+			$('#savedlist').empty();
+			$.each(data.rows, function(index, value){
+				var item = (value.value || value.doc);
+				$('#savedlist').append(
+					$('<li>').append(
+						$('<a>')
+							.attr("href", "course.html")
+							.text(item.datedue)
+					)
+				);
+			});
+			$('#savedlist').listview('refresh');
+		}
+	});
+});

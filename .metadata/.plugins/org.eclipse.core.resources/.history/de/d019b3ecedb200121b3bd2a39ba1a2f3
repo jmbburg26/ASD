@@ -1,0 +1,25 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+		<meta charset="utf-8" />
+		<title>Saved Assignments</title>
+	</head> 
+	<body>
+		<!--View Item Page-->
+		<div id="view" data-role="page" data-add-back-btn="true">
+			<section data-role="header" data-position="fixed">
+				<header>
+					<h1>Saved Assignments</h1>
+				</header>
+			</section>
+			<div data-role="content" class="ui-body">
+				<ul id="savedlist" data-role="listview">
+				</ul>
+			</div>
+			<section>
+				<a href="#" data-role="button" data-icon="plus" data-iconpos="right">Add JSON Data</a>
+				<a href="#" data-role="button" data-icon="plus" data-iconpos="right">Add XML Data</a>
+			</section>	
+		</div>
+	</body>
+</html>

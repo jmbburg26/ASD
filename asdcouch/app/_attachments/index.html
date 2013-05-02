@@ -46,13 +46,13 @@
 		<div id="add" data-role="page" data-add-back-btn="true">
 			<section data-role="header" data-position="fixed">
 				<header>
-					<h1>Add Assignement</h1>
+					<h1>Add Assignment</h1>
 				</header>
 			</section>
 			<section>
 				<form action="" id="additemform">
 					<div>
-						<p>*Indictaes a required field.</p>
+						<p>*Indicates a required field.</p>
 					</div>
 					
 					<div data-role="fieldcontain">
@@ -71,6 +71,11 @@
 					</div>
 					
 					<div data-role="fieldcontain">
+						<label for "subject">*Subject:</label>
+						<input type="text" name="email" id="email" class="required email" placeholder="ASD"/>
+					</div>
+					
+					<div data-role="fieldcontain">
 						<label for="datedue">Date Due:</label>
 						<input type="date" data-clear-btn="false" name="datedue" id="datedue" value="" />
 					</div>
@@ -85,25 +90,18 @@
 						<input type="reset" value="Reset" data-inline="true" data-mini="true" />
 					</div>
 				</form>
+				<div data-role="footer" data-position="fixed" data-id="home" data-theme="b">
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#home" data-icon="home">Home</a></li>
+							<li><a href="#view" data-icon="plus">View</a></li>
+						</ul>
+					</div>	
+				</div>	
 			</section>
 		</div>
 		
-		<!--Add Item Page-->
-		<div id="view" data-role="page" data-add-back-btn="true">
-			<section data-role="header" data-position="fixed">
-				<header>
-					<h1>Saved Assignments</h1>
-				</header>
-			</section>
-			<div data-role="content" class="ui-body">
-				<ul id="savedlist" data-role="listview">
-				</ul>
-			</div>
-			<section>
-				<a href="#" data-role="button" data-icon="plus" data-iconpos="right">Add JSON Data</a>
-				<a href="#" data-role="button" data-icon="plus" data-iconpos="right">Add XML Data</a>
-			</section>	
-		</div>
+		
 		<!--JavaScript-->
 		<script type="text/javascript" src="main.js"></script>
 	</body>

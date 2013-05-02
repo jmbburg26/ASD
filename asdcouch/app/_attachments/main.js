@@ -1,68 +1,39 @@
-$(document).on('pageinit', '#view', function(){
-	$.couch.db("asdproject").view("asdproject/course", {
+$(document).on('pageinit', '#home', function(){
+	$.couch.db("asdproject").view("asdproject/subject", {
 		success: function(data){
-			//console.log(data);
-			$('#savedlist').empty();
+			console.log(data);
+			$('#savedList').empty();
 			$.each(data.rows, function(index, value){
 				var item = (value.value || value.doc);
-				$('#savedlist').append(
+				$('#savedList').append(
 					$('<li>').append(
-						$('<a>').attr("href", "asd.html?course=" + item.)
-							.text(item.title)
+						$('<a>')
+							.attr("href", "assignment.html?course=" + item.subject)
+							.text(item.subject)
 					)
 				);
 			});
-			$('#savedlist').listview('refresh');
+			$('#savedList').listview('refresh');
 		}
 	});
 });
 
-/*
-var getData = function(){
-  if(localStorage.length === 0){
-      alert("There are no assignments in Local Storage so default data has been added.");
-      defaultData();
-    }else{
-  for (var i=0, j=localStorage.length; i<j; i++) {
-              var assign = localStorage[i];
-              $(''+
-                  '<div class="assignments">'+
-                  '<h2>'+ assign.datedue +'</h2>'+
-                  '<p>'+ assign.fname +'</p>'+
-                  '<p>'+ assign.lname +'</p>'+
-                  '<p>'+ assign.email +'</p>'+
-                  '<p>'+ assign.notes +'</p>'+
-                  '</div>'
-                ).appendTo('#assignments');    
-            };
-    }
-};
+var urlVars = function(){
+	var urlData = $($.mobile.activePage).data("url");
+	var urlParts = urlData.split('?');
+	var urlPairs = urlParts[1].split('&');
+	var urlValues = {};
+	for (var pair in urlPairs){
+		var keyValue = urlPairs[pair].split('=');
+		var key = decodeURIComponent(keyValue[0]);
+		var value = decodeURIComponent(keyValue[1]);
+		urlValues[key] = value;
+	}
+	console.log(urlValues);
+	return urlValues;
+}
 
-$('#add').on('pageinit', function(){	
-	
-	//Collect data from form
-	$('form').submit(function() {
-		var userValues		=Math.floor(Math.random()*100000001);
-	  	var userData = $(":input").serializeArray();
-    		jQuery.each(userData, function(i, field){
-      		$("#view").append(field.value + " ");
-  
-    	});
-
-    	var userItems = jQuery.makeArray(userData);
-	  	localStorage.setItem(userValues, userItems);
-	  	alert("Homework Added");
-	});
-
-
-
-
-//Button links
-    var displayLink = $('#view');
-    displayLink.on("click", getData);
-    //var clearLink = $('boom');
-    //clearLink.on("click", boomData);
-    //var save = $('save');
-    //save.on("click", validate);
+$(document).on('pageinit', '#assignment', function(){
+	var subject = urlVars()["subject"];
+	console.log(subject);
 });
-*/
