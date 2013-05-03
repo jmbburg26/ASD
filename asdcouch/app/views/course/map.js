@@ -5,7 +5,8 @@ function(doc) {
     	"lname": doc.lname,
     	"email": doc.email,
     	"datedue": doc.datedue,
-    	"notes": doc.notes
+    	"notes": doc.notes,
+    	"subject": doc.subject
     });
   }
 };
