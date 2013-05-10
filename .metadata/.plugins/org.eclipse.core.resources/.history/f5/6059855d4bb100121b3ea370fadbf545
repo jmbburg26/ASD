@@ -1,7 +1,0 @@
-$('#home').on('pageinit', '#add', function(){
-	$.couch.db("asdproject").view("asdproject/asd", {
-		success: function(data){
-			console.log(data);
-		}
-	});
-});
